@@ -23,8 +23,9 @@ const IdentityStrip = () => {
           {/* Left: pull quote */}
           <div className="flex gap-6">
             <div className="w-[3px] bg-primary shrink-0" />
-            <blockquote className="font-display text-foreground uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
-              🇺🇸 Rebel with a cause ✊🏼
+            <blockquote className="font-display text-foreground uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight flex items-center gap-3 flex-wrap">
+              <img src="https://flagcdn.com/w80/us.png" alt="US Flag" className="inline-block h-8 sm:h-10 md:h-12" />
+              <span>Rebel with a cause ✊🏼</span>
             </blockquote>
           </div>
 
