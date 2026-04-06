@@ -18,12 +18,12 @@ const IdentityStrip = () => {
         </span>
       </div>
 
-      <div className="relative z-10 px-8 md:px-16 lg:px-24">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center max-w-6xl mx-auto">
+      <div className="relative z-10 px-4 sm:px-8 md:px-16 lg:px-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20 items-center max-w-6xl mx-auto">
           {/* Left: pull quote */}
           <div className="flex gap-6">
             <div className="w-[3px] bg-primary shrink-0" />
-            <blockquote className="font-display text-foreground uppercase text-3xl md:text-4xl lg:text-5xl leading-tight">
+            <blockquote className="font-display text-foreground uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
               "I don't build trucks. I build legends."
             </blockquote>
           </div>

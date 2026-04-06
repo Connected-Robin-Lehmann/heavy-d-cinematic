@@ -18,7 +18,7 @@ const videos = [
 
 const YoutubeSection = () => {
   return (
-    <section className="relative py-20 px-8 md:px-16 lg:px-24">
+    <section className="relative py-12 md:py-20 px-4 sm:px-8 md:px-16 lg:px-24">
       {/* Film slate label */}
       <div className="flex items-center gap-0 mb-12 max-w-6xl mx-auto">
         <div className="bg-foreground px-4 py-2 flex items-center gap-2">
@@ -27,7 +27,7 @@ const YoutubeSection = () => {
         <div className="w-3 h-full bg-primary self-stretch" style={{ minHeight: "36px" }} />
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
         {videos.map((video) => (
           <a
             key={video.id}

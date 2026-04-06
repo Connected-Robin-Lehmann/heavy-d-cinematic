@@ -1,6 +1,6 @@
 const FooterSection = () => {
   return (
-    <footer className="relative pt-20 pb-8 px-8 md:px-16 lg:px-24 vignette overflow-hidden">
+    <footer className="relative pt-12 md:pt-20 pb-8 px-4 sm:px-8 md:px-16 lg:px-24 vignette overflow-hidden">
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           {/* Left */}
