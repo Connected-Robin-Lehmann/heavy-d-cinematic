@@ -1,0 +1,54 @@
+const videos = [
+  { title: "BUILDING THE WORLD'S BIGGEST TRUCK", views: "12M views" },
+  { title: "RECOVERING A SEMI FROM A CANYON", views: "8.4M views" },
+  { title: "GIVING AWAY A $100K DIESEL TRUCK", views: "6.1M views" },
+];
+
+const YoutubeSection = () => {
+  return (
+    <section className="relative py-20 px-8 md:px-16 lg:px-24">
+      {/* Film slate label */}
+      <div className="flex items-center gap-0 mb-12 max-w-6xl mx-auto">
+        <div className="bg-foreground px-4 py-2 flex items-center gap-2">
+          <span className="text-background uppercase text-sm font-bold tracking-wider">LATEST DROPS</span>
+        </div>
+        <div className="w-3 h-full bg-primary self-stretch" style={{ minHeight: "36px" }} />
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {videos.map((video, i) => (
+          <div key={i} className="group">
+            {/* Video frame */}
+            <div className="relative aspect-video border-2 border-border overflow-hidden bg-muted">
+              {/* Inner vignette */}
+              <div className="absolute inset-0 shadow-[inset_0_0_30px_rgba(0,0,0,0.5)]" />
+              {/* Play icon */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 border-2 border-foreground/30 flex items-center justify-center group-hover:border-primary transition-colors">
+                  <span className="text-foreground/50 text-2xl group-hover:text-primary transition-colors ml-1">▶</span>
+                </div>
+              </div>
+            </div>
+            {/* Info */}
+            <h4 className="text-foreground uppercase text-sm font-bold tracking-wide mt-4 font-body">{video.title}</h4>
+            <p className="small-caps text-secondary text-xs mt-1">{video.views}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Subscribe link */}
+      <div className="max-w-6xl mx-auto mt-12">
+        <a
+          href="https://www.youtube.com/@HeavyDSparks"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary uppercase font-bold tracking-wider text-sm relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+        >
+          SUBSCRIBE →
+        </a>
+      </div>
+    </section>
+  );
+};
+
+export default YoutubeSection;
