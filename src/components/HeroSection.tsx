@@ -81,16 +81,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Marquee ticker */}
-      <div className="relative z-10 border-t border-border/30 py-3 overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <span key={i} className="small-caps text-secondary text-xs mx-0">
-              {MARQUEE_TEXT}
-            </span>
-          ))}
-        </div>
-      </div>
     </section>
   );
 };
