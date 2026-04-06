@@ -1,7 +1,7 @@
 const stats = [
-  { number: "4.4M", label: "SUBSCRIBERS" },
+  { number: "4.59M", label: "SUBSCRIBERS" },
   { number: "1.1B", label: "VIEWS" },
-  { number: "50+", label: "RECOVERIES" },
+  { number: "982", label: "VIDEOS" },
   { number: "6", label: "SEASONS ON DISCOVERY" },
 ];
 
