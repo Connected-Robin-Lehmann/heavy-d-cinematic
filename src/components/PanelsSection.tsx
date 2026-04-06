@@ -15,14 +15,14 @@ const panels = [
     icon: Wrench,
     subtitle: "THE ENGINE",
     title: "CUSTOM AUTOMOTIVE & LOGISTICS",
-    desc: "Sparks Motors and DieselSellerz built the blueprint for high-end diesel fabrication. He didn't just build trucks — he built a giveaway model that turned apparel and parts into monsters on wheels.",
+    desc: "Sparks Motors and DieselSellerz built the blueprint for high-end diesel fabrication.",
     image: panelAutomotive,
   },
   {
     icon: Radio,
     subtitle: "THE LEGACY",
     title: "HUMANITARIAN & TECH INNOVATION",
-    desc: "Search and rescue. Disaster relief. Hydrogen-electric trucks. Through EMBR Motors and his fleet of helicopters, Dave is proving that heavy-duty and forward-thinking aren't opposites.",
+    desc: "Search and rescue. Disaster relief. Through his fleet of helicopters and forward-thinking ventures, Dave is proving that heavy-duty and humanitarian go hand in hand.",
     image: panelHumanitarian,
   },
 ];
