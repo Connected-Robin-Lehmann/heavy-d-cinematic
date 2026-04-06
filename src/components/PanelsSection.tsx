@@ -1,26 +1,29 @@
-import { Wrench, Mountain, Gift } from "lucide-react";
-import panelBuilds from "@/assets/panel-builds.jpg";
-import panelRecovery from "@/assets/panel-recovery.jpg";
-import panelGiveaway from "@/assets/panel-giveaway.jpg";
+import { Play, Wrench, Radio } from "lucide-react";
+import panelMedia from "@/assets/panel-media.jpg";
+import panelAutomotive from "@/assets/panel-automotive.jpg";
+import panelHumanitarian from "@/assets/panel-humanitarian.jpg";
 
 const panels = [
   {
+    icon: Play,
+    subtitle: "THE VOICE",
+    title: "MEDIA & DIGITAL ENTERTAINMENT",
+    desc: "From Discovery Channel to 4.4 million YouTube subscribers — Dave turned his life into a 24/7 content engine. Extreme builds, business vlogs, and behind-the-scenes access that no studio could script.",
+    image: panelMedia,
+  },
+  {
     icon: Wrench,
-    title: "CUSTOM BUILDS",
-    desc: "From bare frame to full-blown monster — diesel trucks built to defy expectations.",
-    image: panelBuilds,
+    subtitle: "THE ENGINE",
+    title: "CUSTOM AUTOMOTIVE & LOGISTICS",
+    desc: "Sparks Motors and DieselSellerz built the blueprint for high-end diesel fabrication. He didn't just build trucks — he built a giveaway model that turned apparel and parts into monsters on wheels.",
+    image: panelAutomotive,
   },
   {
-    icon: Mountain,
-    title: "EPIC RECOVERIES",
-    desc: "Pulling rigs out of impossible terrain. If it's stuck, Heavy D will get it out.",
-    image: panelRecovery,
-  },
-  {
-    icon: Gift,
-    title: "TRUCK GIVEAWAYS",
-    desc: "Massive custom trucks given away to fans who deserve them most.",
-    image: panelGiveaway,
+    icon: Radio,
+    subtitle: "THE LEGACY",
+    title: "HUMANITARIAN & TECH INNOVATION",
+    desc: "Search and rescue. Disaster relief. Hydrogen-electric trucks. Through EMBR Motors and his fleet of helicopters, Dave is proving that heavy-duty and forward-thinking aren't opposites.",
+    image: panelHumanitarian,
   },
 ];
 
@@ -47,6 +50,7 @@ const PanelsSection = () => {
             {/* Content */}
             <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-8">
               <panel.icon className="text-primary mb-4" size={32} />
+              <p className="small-caps text-primary text-[10px] tracking-[0.2em] mb-1">{panel.subtitle}</p>
               <h3 className="small-caps text-foreground text-sm mb-2">{panel.title}</h3>
               <p className="text-muted-foreground text-sm font-body leading-relaxed">{panel.desc}</p>
 
