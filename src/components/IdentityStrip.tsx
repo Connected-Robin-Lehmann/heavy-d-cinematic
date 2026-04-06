@@ -24,7 +24,7 @@ const IdentityStrip = () => {
           <div className="flex gap-6">
             <div className="w-[3px] bg-primary shrink-0" />
             <blockquote className="font-display text-foreground uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
-              "I don't build trucks. I build legends."
+              🇺🇸 Rebel with a cause ✊🏼
             </blockquote>
           </div>
 
