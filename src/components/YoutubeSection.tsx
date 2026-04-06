@@ -1,7 +1,19 @@
 const videos = [
-  { title: "BUILDING THE WORLD'S BIGGEST TRUCK", views: "12M views" },
-  { title: "RECOVERING A SEMI FROM A CANYON", views: "8.4M views" },
-  { title: "GIVING AWAY A $100K DIESEL TRUCK", views: "6.1M views" },
+  {
+    id: "yf16MpI_PAQ",
+    title: "BUILDING THE WORLD'S BIGGEST TRUCK",
+    views: "12M views",
+  },
+  {
+    id: "QC83fZu_aeA",
+    title: "RECOVERING A SEMI FROM A CANYON",
+    views: "8.4M views",
+  },
+  {
+    id: "Yr9ZCcR3Fgw",
+    title: "GIVING AWAY A $100K DIESEL TRUCK",
+    views: "6.1M views",
+  },
 ];
 
 const YoutubeSection = () => {
@@ -16,15 +28,27 @@ const YoutubeSection = () => {
       </div>
 
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {videos.map((video, i) => (
-          <div key={i} className="group">
-            {/* Video frame */}
+        {videos.map((video) => (
+          <a
+            key={video.id}
+            href={`https://www.youtube.com/watch?v=${video.id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block"
+          >
+            {/* YouTube thumbnail */}
             <div className="relative aspect-video border-2 border-border overflow-hidden bg-muted">
+              <img
+                src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                alt={video.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
               {/* Inner vignette */}
               <div className="absolute inset-0 shadow-[inset_0_0_30px_rgba(0,0,0,0.5)]" />
               {/* Play icon */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 border-2 border-foreground/30 flex items-center justify-center group-hover:border-primary transition-colors">
+                <div className="w-16 h-16 border-2 border-foreground/30 flex items-center justify-center group-hover:border-primary transition-colors bg-background/40">
                   <span className="text-foreground/50 text-2xl group-hover:text-primary transition-colors ml-1">▶</span>
                 </div>
               </div>
@@ -32,7 +56,7 @@ const YoutubeSection = () => {
             {/* Info */}
             <h4 className="text-foreground uppercase text-sm font-bold tracking-wide mt-4 font-body">{video.title}</h4>
             <p className="small-caps text-secondary text-xs mt-1">{video.views}</p>
-          </div>
+          </a>
         ))}
       </div>
 
