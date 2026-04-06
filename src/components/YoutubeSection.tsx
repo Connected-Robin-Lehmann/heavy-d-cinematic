@@ -1,18 +1,18 @@
 const videos = [
   {
     id: "yf16MpI_PAQ",
-    title: "BUILDING THE WORLD'S BIGGEST TRUCK",
-    views: "12M views",
+    title: "I Sold My Blackhawk and Bought a New One",
+    views: "1M views",
   },
   {
     id: "QC83fZu_aeA",
-    title: "RECOVERING A SEMI FROM A CANYON",
-    views: "8.4M views",
+    title: "We Bought Random Vehicles… Then Built THIS",
+    views: "727K views",
   },
   {
     id: "Yr9ZCcR3Fgw",
-    title: "GIVING AWAY A $100K DIESEL TRUCK",
-    views: "6.1M views",
+    title: "I Bought the WEIRDEST Camper Wagon on Marketplace (Only 4 Exist)",
+    views: "778K views",
   },
 ];
 
