@@ -43,15 +43,15 @@ const HeroSection = () => {
       <div ref={particleContainerRef} className="absolute inset-0 pointer-events-none overflow-hidden" />
 
       {/* Wordmark */}
-      <div className="absolute top-8 left-8 z-10">
-        <span className="small-caps text-secondary text-sm font-medium">
+      <div className="absolute top-4 left-4 sm:top-8 sm:left-8 z-10">
+        <span className="small-caps text-secondary text-xs sm:text-sm font-medium">
           HEAVYDSPARKS
         </span>
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 px-8 md:px-16 lg:px-24 flex-1 flex flex-col justify-center">
-        <h1 className="font-display uppercase leading-[0.85]" style={{ fontSize: "clamp(80px, 12vw, 160px)", letterSpacing: "-1px" }}>
+      <div className="relative z-10 px-4 sm:px-8 md:px-16 lg:px-24 flex-1 flex flex-col justify-center">
+        <h1 className="font-display uppercase leading-[0.85]" style={{ fontSize: "clamp(48px, 12vw, 160px)", letterSpacing: "-1px" }}>
           <span className="block text-foreground">BUILT</span>
           <span className="block text-primary">DIFFERENT.</span>
         </h1>
@@ -69,12 +69,12 @@ const HeroSection = () => {
         </p>
 
         {/* CTA */}
-        <div className="mt-10">
+        <div className="mt-8 md:mt-10">
           <a
             href="https://www.youtube.com/@HeavyDSparks"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-primary text-primary-foreground uppercase font-bold tracking-wider text-sm px-8 py-4 animate-pulse-border hover:brightness-110 transition-all"
+            className="inline-block bg-primary text-primary-foreground uppercase font-bold tracking-wider text-xs sm:text-sm px-6 sm:px-8 py-3 sm:py-4 animate-pulse-border hover:brightness-110 transition-all"
           >
             ▶ WATCH ON YOUTUBE
           </a>

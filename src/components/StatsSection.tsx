@@ -7,7 +7,7 @@ const stats = [
 
 const StatsSection = () => {
   return (
-    <section className="relative py-20 px-8 md:px-16 lg:px-24 clip-diagonal-both bg-secondary/20 -my-[4vw]">
+    <section className="relative py-12 md:py-20 px-4 sm:px-8 md:px-16 lg:px-24 clip-diagonal-both bg-secondary/20 -my-[4vw]">
       <div className="max-w-6xl mx-auto py-[4vw]">
         <p className="small-caps text-secondary text-xs mb-12 text-center">BY THE NUMBERS</p>
 
@@ -15,7 +15,7 @@ const StatsSection = () => {
           {stats.map((stat, i) => (
             <div key={i} className="flex">
               <div className="flex-1 text-center py-8">
-                <div className="font-display text-primary text-5xl md:text-6xl lg:text-7xl">{stat.number}</div>
+                <div className="font-display text-primary text-4xl sm:text-5xl md:text-6xl lg:text-7xl">{stat.number}</div>
                 <div className="small-caps text-foreground text-[10px] mt-3">{stat.label}</div>
               </div>
               {i < stats.length - 1 && (

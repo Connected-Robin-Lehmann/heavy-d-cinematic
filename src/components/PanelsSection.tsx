@@ -29,14 +29,14 @@ const panels = [
 
 const PanelsSection = () => {
   return (
-    <section className="relative py-20 px-8 md:px-16 lg:px-24">
-      <p className="small-caps text-secondary text-xs mb-12 text-center">WHAT HE DOES</p>
+    <section className="relative py-12 md:py-20 px-4 sm:px-8 md:px-16 lg:px-24">
+      <p className="small-caps text-secondary text-xs mb-8 md:mb-12 text-center">WHAT HE DOES</p>
 
-      <div className="grid md:grid-cols-3 gap-0 max-w-6xl mx-auto h-[500px] md:h-[600px]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 max-w-6xl mx-auto md:h-[600px]">
         {panels.map((panel, i) => (
           <div
             key={i}
-            className="relative group overflow-hidden cursor-pointer transition-all duration-500 hover:flex-[1.15] flex-1"
+            className="relative group overflow-hidden cursor-pointer transition-all duration-500 md:hover:flex-[1.15] md:flex-1 min-h-[280px] md:min-h-0"
             style={{ display: "flex", flexDirection: "column" }}
           >
             {/* BG image */}
