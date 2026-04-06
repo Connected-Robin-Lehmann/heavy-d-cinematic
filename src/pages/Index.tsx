@@ -13,7 +13,7 @@ const ScrollSection = ({ children }: { children: React.ReactNode }) => {
 
 const Index = () => {
   return (
-    <div className="film-grain bg-background min-h-screen overflow-x-hidden">
+    <div className="film-grain bg-background min-h-screen" style={{ overflowX: "clip" }}>
       <HeroSection />
       <ScrollSection><IdentityStrip /></ScrollSection>
       <ScrollSection><PanelsSection /></ScrollSection>
