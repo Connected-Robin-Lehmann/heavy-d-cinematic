@@ -1,6 +1,6 @@
 import { Play, Wrench, Radio } from "lucide-react";
 import panelMedia from "@/assets/panel-media.jpg";
-import panelAutomotive from "@/assets/panel-automotive.jpg";
+import panelAutomotive from "@/assets/panel-custom.jpg";
 import panelHumanitarian from "@/assets/panel-humanitarian.jpg";
 
 const panels = [
