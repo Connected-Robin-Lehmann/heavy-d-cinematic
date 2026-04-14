@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const MARQUEE_TEXT = "DIESEL BROTHERS · SPARKS MOTORS · CUSTOM BUILDS · TRUCK GIVEAWAYS · UTAH BUILT · ";
@@ -43,11 +44,14 @@ const HeroSection = () => {
       <div ref={particleContainerRef} className="absolute inset-0 pointer-events-none overflow-hidden" />
 
       {/* Wordmark */}
-      <div className="absolute top-4 left-4 sm:top-8 sm:left-8 z-10">
+      <nav className="absolute top-4 left-4 sm:top-8 sm:left-8 z-10 flex items-center gap-6">
         <span className="small-caps text-secondary text-xs sm:text-sm font-medium">
           HEAVYDSPARKS
         </span>
-      </div>
+        <Link to="/team" className="small-caps text-muted-foreground text-xs sm:text-sm font-medium hover:text-primary transition-colors">
+          TEAM
+        </Link>
+      </nav>
 
       {/* Main content */}
       <div className="relative z-10 px-4 sm:px-8 md:px-16 lg:px-24 flex-1 flex flex-col justify-center">
