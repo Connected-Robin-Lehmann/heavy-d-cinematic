@@ -36,26 +36,38 @@ const PanelsSection = () => {
         {panels.map((panel, i) => (
           <div
             key={i}
-            className="relative group overflow-hidden cursor-pointer transition-all duration-500 md:hover:flex-[1.15] md:flex-1 min-h-[280px] md:min-h-0"
+            className="group overflow-hidden cursor-pointer transition-all duration-500 md:hover:flex-[1.15] md:flex-1 md:relative md:min-h-0"
             style={{ display: "flex", flexDirection: "column" }}
           >
-            {/* BG image */}
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-              style={{ backgroundImage: `url(${panel.image})` }}
-            />
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
+            {/* Mobile: stacked image + text */}
+            <div className="md:hidden">
+              <div
+                className="w-full h-48 bg-cover bg-center"
+                style={{ backgroundImage: `url(${panel.image})` }}
+              />
+              <div className="bg-background p-5">
+                <panel.icon className="text-primary mb-3" size={28} />
+                <p className="small-caps text-primary text-[10px] tracking-[0.2em] mb-1">{panel.subtitle}</p>
+                <h3 className="small-caps text-foreground text-sm mb-2">{panel.title}</h3>
+                <p className="text-muted-foreground text-sm font-body leading-relaxed">{panel.desc}</p>
+                <div className="h-[2px] bg-primary mt-4 w-full" />
+              </div>
+            </div>
 
-            {/* Content */}
-            <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-8">
-              <panel.icon className="text-primary mb-4" size={32} />
-              <p className="small-caps text-primary text-[10px] tracking-[0.2em] mb-1">{panel.subtitle}</p>
-              <h3 className="small-caps text-foreground text-sm mb-2">{panel.title}</h3>
-              <p className="text-muted-foreground text-sm font-body leading-relaxed">{panel.desc}</p>
-
-              {/* Hover accent line */}
-              <div className="h-[2px] bg-primary mt-6 w-0 group-hover:w-full transition-all duration-500" />
+            {/* Desktop: overlay layout */}
+            <div className="hidden md:flex flex-col relative h-full">
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={{ backgroundImage: `url(${panel.image})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
+              <div className="relative z-10 flex flex-col justify-end h-full p-8">
+                <panel.icon className="text-primary mb-4" size={32} />
+                <p className="small-caps text-primary text-[10px] tracking-[0.2em] mb-1">{panel.subtitle}</p>
+                <h3 className="small-caps text-foreground text-sm mb-2">{panel.title}</h3>
+                <p className="text-muted-foreground text-sm font-body leading-relaxed">{panel.desc}</p>
+                <div className="h-[2px] bg-primary mt-6 w-0 group-hover:w-full transition-all duration-500" />
+              </div>
             </div>
           </div>
         ))}
