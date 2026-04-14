@@ -1,4 +1,6 @@
-const videos = [
+import { useYoutubeFeed } from "@/hooks/use-youtube-feed";
+
+const FALLBACK_VIDEOS = [
   {
     id: "yf16MpI_PAQ",
     title: "I Sold My Blackhawk and Bought a New One",
@@ -17,47 +19,72 @@ const videos = [
 ];
 
 const YoutubeSection = () => {
+  const { videos: liveVideos, loading, error } = useYoutubeFeed();
+  const videos =
+    error || (!loading && liveVideos.length === 0)
+      ? FALLBACK_VIDEOS
+      : liveVideos;
+
   return (
     <section className="relative py-12 md:py-20 px-4 sm:px-8 md:px-16 lg:px-24">
       {/* Film slate label */}
       <div className="flex items-center gap-0 mb-12 max-w-6xl mx-auto">
         <div className="bg-foreground px-4 py-2 flex items-center gap-2">
-          <span className="text-background uppercase text-sm font-bold tracking-wider">LATEST DROPS</span>
+          <span className="text-background uppercase text-sm font-bold tracking-wider">
+            LATEST DROPS
+          </span>
         </div>
-        <div className="w-3 h-full bg-primary self-stretch" style={{ minHeight: "36px" }} />
+        <div
+          className="w-3 h-full bg-primary self-stretch"
+          style={{ minHeight: "36px" }}
+        />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-        {videos.map((video) => (
-          <a
-            key={video.id}
-            href={`https://www.youtube.com/watch?v=${video.id}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block"
-          >
-            {/* YouTube thumbnail */}
-            <div className="relative aspect-video border-2 border-border overflow-hidden bg-muted">
-              <img
-                src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
-                alt={video.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              {/* Inner vignette */}
-              <div className="absolute inset-0 shadow-[inset_0_0_30px_rgba(0,0,0,0.5)]" />
-              {/* Play icon */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 border-2 border-foreground/30 flex items-center justify-center group-hover:border-primary transition-colors bg-background/40">
-                  <span className="text-foreground/50 text-2xl group-hover:text-primary transition-colors ml-1">▶</span>
-                </div>
+        {loading
+          ? Array.from({ length: 3 }).map((_, i) => (
+              <div key={i} className="block animate-pulse">
+                <div className="relative aspect-video border-2 border-border bg-muted" />
+                <div className="h-4 bg-muted rounded mt-4 w-3/4" />
+                <div className="h-3 bg-muted rounded mt-2 w-1/4" />
               </div>
-            </div>
-            {/* Info */}
-            <h4 className="text-foreground uppercase text-sm font-bold tracking-wide mt-4 font-body">{video.title}</h4>
-            <p className="small-caps text-secondary text-xs mt-1">{video.views}</p>
-          </a>
-        ))}
+            ))
+          : videos.map((video) => (
+              <a
+                key={video.id}
+                href={`https://www.youtube.com/watch?v=${video.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+              >
+                {/* YouTube thumbnail */}
+                <div className="relative aspect-video border-2 border-border overflow-hidden bg-muted">
+                  <img
+                    src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                    alt={video.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  {/* Inner vignette */}
+                  <div className="absolute inset-0 shadow-[inset_0_0_30px_rgba(0,0,0,0.5)]" />
+                  {/* Play icon */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 border-2 border-foreground/30 flex items-center justify-center group-hover:border-primary transition-colors bg-background/40">
+                      <span className="text-foreground/50 text-2xl group-hover:text-primary transition-colors ml-1">
+                        ▶
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                {/* Info */}
+                <h4 className="text-foreground uppercase text-sm font-bold tracking-wide mt-4 font-body">
+                  {video.title}
+                </h4>
+                <p className="small-caps text-secondary text-xs mt-1">
+                  {video.views}
+                </p>
+              </a>
+            ))}
       </div>
 
       {/* Subscribe link */}
