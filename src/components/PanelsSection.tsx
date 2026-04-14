@@ -42,7 +42,7 @@ const PanelsSection = () => {
             {/* Mobile: stacked image + text */}
             <div className="md:hidden">
               <div
-                className="w-full h-48 bg-cover bg-center"
+                className="w-full h-64 bg-cover bg-center"
                 style={{ backgroundImage: `url(${panel.image})` }}
               />
               <div className="bg-background p-5">
