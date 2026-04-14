@@ -4,6 +4,9 @@ const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY as string;
 const CHANNEL_HANDLE = "HeavyDSparks";
 const BASE = "https://www.googleapis.com/youtube/v3";
 
+// YouTube Shorts are capped at 3 minutes — anything longer cannot be a Short
+const MIN_DURATION_SECONDS = 180;
+
 export interface YoutubeVideo {
   id: string;
   title: string;
@@ -16,6 +19,15 @@ function formatViews(count: string): string {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M views`;
   if (n >= 1_000) return `${Math.round(n / 1_000)}K views`;
   return `${n} views`;
+}
+
+function parseDuration(iso: string): number {
+  const match = iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+  if (!match) return 0;
+  const h = parseInt(match[1] ?? "0", 10);
+  const m = parseInt(match[2] ?? "0", 10);
+  const s = parseInt(match[3] ?? "0", 10);
+  return h * 3600 + m * 60 + s;
 }
 
 export function useYoutubeFeed() {
@@ -45,28 +57,25 @@ export function useYoutubeFeed() {
           .map((item) => item.snippet.resourceId.videoId as string)
           .join(",");
 
-        // 3. Get player dimensions + view counts in one request.
-        // Shorts are portrait (embedHeight > embedWidth); regular videos are landscape.
+        // 3. Get duration + view counts. Duration is the only reliable Short indicator
+        // available via the API — Shorts are hard-capped at 3 minutes by YouTube.
         const statsRes = await fetch(
-          `${BASE}/videos?part=player,statistics&id=${videoIds}&key=${API_KEY}`,
+          `${BASE}/videos?part=statistics,contentDetails&id=${videoIds}&key=${API_KEY}`,
         );
         const statsData = await statsRes.json();
-        const infoMap: Record<string, { views: string; isLandscape: boolean }> =
-          {};
+        const infoMap: Record<string, { views: string; duration: number }> = {};
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         for (const v of statsData.items as any[]) {
           infoMap[v.id] = {
             views: v.statistics.viewCount ?? "0",
-            isLandscape:
-              (v.player?.embedWidth ?? 16) >= (v.player?.embedHeight ?? 9),
+            duration: parseDuration(v.contentDetails.duration ?? ""),
           };
         }
 
         const result: YoutubeVideo[] = items
           .filter((item) => {
             const id = item.snippet.resourceId.videoId as string;
-            // Exclude Shorts (portrait embed orientation)
-            return infoMap[id]?.isLandscape !== false;
+            return (infoMap[id]?.duration ?? 0) > MIN_DURATION_SECONDS;
           })
           .slice(0, 3)
           .map((item) => ({
