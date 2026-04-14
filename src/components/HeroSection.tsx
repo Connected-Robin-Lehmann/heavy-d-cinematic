@@ -44,7 +44,7 @@ const HeroSection = () => {
       <div ref={particleContainerRef} className="absolute inset-0 pointer-events-none overflow-hidden" />
 
       {/* Wordmark */}
-      <nav className="absolute top-4 left-4 sm:top-8 sm:left-8 z-10 flex items-center gap-6">
+      <nav className="absolute top-4 left-4 sm:top-8 sm:left-8 z-20 flex items-center gap-6">
         <span className="small-caps text-secondary text-xs sm:text-sm font-medium">
           HEAVYDSPARKS
         </span>
