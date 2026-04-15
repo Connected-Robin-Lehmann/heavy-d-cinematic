@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import panelMedia from "@/assets/panel-media.jpg";
+import teamKiley from "@/assets/team-kiley.jpg";
 
 const TEAM_MEMBERS = [
   {
@@ -6,24 +8,28 @@ const TEAM_MEMBERS = [
     name: "DAVE SPARKS",
     role: "Founder · Builder · Pilot",
     bio: "The mind behind it all. Dave built DieselSellerz and Sparks Motors from scratch, turned a Utah shop into a Discovery Channel phenomenon, and never stopped pushing further — from custom diesels to Black Hawks to hydrogen-electric trucks.",
+    image: panelMedia,
   },
   {
     callsign: "THE CHARM",
     name: "DAVE KILEY",
     role: "Co-Founder · Driver · Face of the Brand",
     bio: "Heavy D's right hand since day one. Dave Kiley is the guy who keeps the energy alive — behind the wheel, in front of the camera, and everywhere in between. Met Heavy D at a church event. Left with a business partner for life.",
+    image: teamKiley,
   },
   {
-    callsign: "THE MUSCLE",
-    name: "KEATON HOSKINS",
-    role: "Co-Founder · Operations · Fitness Entrepreneur",
-    bio: "The powerhouse of the crew. Keaton has been part of the team since the beginning, keeping DieselSellerz running smoothly while building his own empire in fitness and nutrition on the side.",
+    callsign: "COMING SOON",
+    name: "TBA",
+    role: "—",
+    bio: null,
+    image: null,
   },
   {
-    callsign: "THE REDBEARD",
-    name: "JOSH STUART",
-    role: "Co-Founder · Business & Budget",
-    bio: "The man who keeps the numbers real. Josh co-founded DieselSellerz alongside Heavy D and has been the business backbone of the operation — the one making sure the dream stays funded.",
+    callsign: "COMING SOON",
+    name: "TBA",
+    role: "—",
+    bio: null,
+    image: null,
   },
 ];
 
@@ -71,19 +77,27 @@ const Team = () => {
         {/* Team Grid */}
         <section className="px-4 sm:px-8 md:px-16 lg:px-24 pt-[calc(4vw+2rem)] pb-16 md:pb-24">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {TEAM_MEMBERS.map((member) => (
+            {TEAM_MEMBERS.map((member, idx) => (
               <div
-                key={member.name}
+                key={idx}
                 className="group bg-card border border-border relative overflow-hidden"
               >
-                {/* Portrait placeholder */}
+                {/* Portrait */}
                 <div className="relative w-full aspect-video bg-background">
-                  <div className="absolute inset-0 vignette" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-display text-foreground/10 uppercase" style={{ fontSize: "clamp(24px, 4vw, 48px)" }}>
-                      {member.callsign}
-                    </span>
-                  </div>
+                  <div className="absolute inset-0 vignette z-10" />
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="absolute inset-0 w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="font-display text-foreground/10 uppercase" style={{ fontSize: "clamp(24px, 4vw, 48px)" }}>
+                        {member.callsign}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Info */}
@@ -97,9 +111,11 @@ const Team = () => {
                   <p className="small-caps text-secondary text-[10px] sm:text-xs mt-1 mb-3">
                     {member.role}
                   </p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {member.bio}
-                  </p>
+                  {member.bio && (
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {member.bio}
+                    </p>
+                  )}
                 </div>
 
                 {/* Animated bottom border */}
