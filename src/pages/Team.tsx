@@ -83,7 +83,7 @@ const Team = () => {
                 className="group bg-card border border-border relative overflow-hidden"
               >
                 {/* Portrait */}
-                <div className="relative w-full aspect-video bg-background">
+                <div className="relative w-full aspect-[4/5] bg-background">
                   <div className="absolute inset-0 vignette z-10" />
                   {member.image ? (
                     <img
