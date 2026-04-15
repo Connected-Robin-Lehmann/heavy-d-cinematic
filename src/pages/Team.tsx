@@ -7,7 +7,7 @@ const TEAM_MEMBERS = [
     callsign: "THE BOSS",
     name: "DAVE SPARKS",
     role: "Founder · Builder · Pilot",
-    bio: "The mind behind it all. Dave built DieselSellerz and Sparks Motors from scratch, turned a Utah shop into a Discovery Channel phenomenon, and never stopped pushing further — from custom diesels to Black Hawks to hydrogen-electric trucks.",
+    bio: "The mind behind it all. Dave built DieselSellerz and Sparks Motors from scratch, turned a Utah shop into a Discovery Channel phenomenon, and never stopped pushing further — from custom diesels to Black Hawks.",
     image: panelMedia,
   },
   {
